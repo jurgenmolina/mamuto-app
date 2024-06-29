@@ -1,0 +1,29 @@
+.hero-image {
+    background-image: url('./../../../assets/images/home.jpg');
+    background-size: cover;
+  background-position: center;
+  height: 100vh;
+  position: relative;
+  text-align: center;
+  color: white;
+  font-family: 'Roboto', sans-serif;
+  padding-top: 64px; /* Agregar un margen superior para que el contenido no quede detrás del navbar */
+}
+
+.hero-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2rem;
+}
+
+.social-buttons {
+  margin-top: 1rem;
+}
+
+.social-buttons button {
+  background-color: transparent;
+  color: white;
+  margin: 0 0.5rem;
+}

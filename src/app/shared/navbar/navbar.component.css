@@ -1,0 +1,26 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  transition: top 0.3s;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+  margin-right: 1rem;
+}
+
+button[mat-button] {
+  background-color: orange;
+  color: white;
+}
+
+button[mat-button]:hover {
+  background-color: darkorange;
+}

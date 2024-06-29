@@ -1,0 +1,30 @@
+.footer {
+  display: flex;
+  justify-content: space-between; /* Espacia los elementos a los extremos */
+  align-items: center;
+  background-color: #333;
+  color: white;
+  padding: 1rem;
+  width: 100%;
+}
+
+.footer-left {
+  display: flex;
+}
+
+.footer-left a {
+  color: white;
+  text-decoration: none;
+  margin-right: 1rem;
+  font-size: 0.9rem;
+}
+
+.footer-left a:hover {
+  color: #ff9800;
+}
+
+.footer-right {
+  flex: 1;
+  text-align: center;
+  font-size: 0.9rem;
+}
