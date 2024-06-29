@@ -5,27 +5,58 @@
   z-index: 1000;
   background-color: transparent !important;
   transition: background-color 0.3s ease;
+  padding: 0 16px;
+  font-size: 16px; /* Ajusta este valor según necesites */
 }
 
 .navbar.scrolled {
   background-color: rgba(255, 255, 255, 0.95) !important;
 }
 
+.logo {
+  font-size: 24px; /* Ajusta el tamaño del logo si es necesario */
+}
+
+.nav-links {
+  display: flex;
+  gap: 8px;
+}
+
+.nav-links a {
+  text-transform: capitalize;
+  font-size: 16px; /* Asegura que los enlaces tengan el tamaño correcto */
+}
+
+.sale {
+  color: green !important;
+}
+
 .spacer {
   flex: 1 1 auto;
 }
 
-a {
-  color: white;
-  text-decoration: none;
-  margin-right: 1rem;
+.icons {
+  display: flex;
+  gap: 8px;
 }
 
-button[mat-button] {
-  background-color: #ff3636;
-  color: white;
+a, button {
+  color: inherit;
 }
 
-button[mat-button]:hover {
-  background-color: #e33232;
+.scrolled a, .scrolled button {
+  color: black;
+}
+
+/* Ajusta el tamaño de los iconos si es necesario */
+mat-icon {
+  font-size: 24px;
+  height: 24px;
+  width: 24px;
+  line-height: 24px;
+}
+
+/* Ajusta el tamaño de los iconos si es necesario */
+mat-icon {
+  font-size: 28px;
 }

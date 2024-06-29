@@ -1,9 +1,22 @@
-<mat-toolbar [class.scrolled]="isScrolled" class="navbar">
-  <span>NOW UI KIT PRO ANGULAR</span>
+<mat-toolbar class="navbar">
+  <a mat-button href="#" class="logo">Logo</a>
   <span class="spacer"></span>
-  <a mat-button href="#">DOCUMENTATION</a>
-  <a mat-button href="#">COMPONENTS</a>
-  <a mat-button href="#">SECTIONS</a>
-  <a mat-button href="#">EXAMPLES</a>
-  <button mat-button>Buy now</button>
+  <div class="nav-links">
+    <a mat-button href="#">hombre</a>
+    <a mat-button href="#">mujer</a>
+    <a mat-button href="#">accesorios</a>
+    <a mat-button href="#" class="sale">rebajas</a>
+  </div>
+  <span class="spacer"></span>
+  <div class="icons">
+    <button mat-icon-button>
+      <mat-icon>person_outline</mat-icon>
+    </button>
+    <button mat-icon-button>
+      <mat-icon>search</mat-icon>
+    </button>
+    <button mat-icon-button>
+      <mat-icon>shopping_bag</mat-icon>
+    </button>
+  </div>
 </mat-toolbar>

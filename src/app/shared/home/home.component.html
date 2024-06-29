@@ -1,11 +1,16 @@
-<div class="hero-image">
-    <div class="hero-text">
-      <h1>This is our great company.</h1>
+<ngb-carousel>
+  <ng-template ngbSlide *ngFor="let slide of slides">
+    <div class="picsum-img-wrapper">
+      <img [src]="slide.src" [alt]="slide.title">
+    </div>
+    <div class="carousel-caption">
+      <h1>{{slide.title}}</h1>
+      <p>{{slide.subtitle}}</p>
       <div class="social-buttons">
         <button mat-icon-button><mat-icon>facebook</mat-icon></button>
         <button mat-icon-button><mat-icon>twitter</mat-icon></button>
         <button mat-icon-button><mat-icon>google</mat-icon></button>
       </div>
     </div>
-  </div>
-  
+  </ng-template>
+</ngb-carousel>
