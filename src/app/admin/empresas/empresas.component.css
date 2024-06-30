@@ -1,0 +1,84 @@
+:host {
+  display: block;
+  height: 100vh;
+}
+
+.empresas-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #000000;
+  position: relative;
+  top: -100px;
+  z-index: 10;
+}
+
+.empresas-card {
+  width: 80%;
+  max-width: 1200px;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+.empresas-content {
+  padding: 20px;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.title-text {
+  font-weight: bold;
+  color: #2e2d2a;
+  font-size: 24px;
+  margin: 0;
+}
+
+.add-button {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+.add-button:hover {
+  background-color: #36373d;
+}
+
+.table-container {
+  overflow: auto;
+  margin-bottom: 20px;
+}
+
+table {
+  width: 100%;
+}
+
+.mat-column-acciones {
+  width: 120px;
+  text-align: center;
+}
+
+mat-paginator {
+  margin-top: 20px;
+}
+
+/* Estilos responsivos */
+@media (max-width: 600px) {
+  .empresas-card {
+    width: 95%;
+  }
+
+  .header-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .add-button {
+    margin-top: 10px;
+  }
+}
