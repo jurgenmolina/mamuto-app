@@ -29,11 +29,6 @@ router-outlet {
   flex: 1;
 }
 
-/* Sobrescribe los estilos de Material para los botones de texto */
-.mat-mdc-button {
-  font-size: 16px !important;
-}
-
 .footer {
   display: flex;
   justify-content: space-between;

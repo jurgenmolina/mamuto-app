@@ -1,34 +1,52 @@
+/* navbar.component.css */
 .navbar {
   position: fixed;
-  top: 0;
-  width: 100%;
+  top: 0; /* Asegura que la barra de navegación esté pegada a la parte superior */
+  left: 0; 
+  right: 0;
+  width: 100%; 
   z-index: 1000;
-  background-color: transparent !important;
-  transition: background-color 0.3s ease;
-  padding: 0 16px;
-  font-size: 16px; /* Ajusta este valor según necesites */
+  background-color: transparent;
+  color: white;
+  transition: background-color 0.3s ease, color 0.3s ease, text-shadow 0.3s ease;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6); /* Sombreado gris delicado */
 }
 
 .navbar.scrolled {
-  background-color: rgba(255, 255, 255, 0.95) !important;
+  background-color: white;
+  color: black;
+  text-shadow: none; /* Quita el sombreado al deslizar */
+}
+
+.navbar a, .navbar button {
+  color: inherit;
+  font-weight: normal; /* Ajusta el grosor de la letra */
+}
+
+.navbar.scrolled a, .navbar.scrolled button {
+  color: black;
+}
+
+.navbar .sale {
+  font-weight: bold; /* "Rebajas" en negrita */
+}
+
+.navbar.scrolled .sale {
+  color: black;
 }
 
 .logo {
-  font-size: 24px; /* Ajusta el tamaño del logo si es necesario */
+  font-size: 18px; /* Ajusta el tamaño del logo si es necesario */
 }
 
 .nav-links {
   display: flex;
-  gap: 8px;
+  gap: 10px;
 }
 
 .nav-links a {
   text-transform: capitalize;
-  font-size: 16px; /* Asegura que los enlaces tengan el tamaño correcto */
-}
-
-.sale {
-  color: green !important;
+  font-size: 18px; /* Asegura que los enlaces tengan el tamaño correcto */
 }
 
 .spacer {
@@ -38,14 +56,11 @@
 .icons {
   display: flex;
   gap: 8px;
+  margin-right: 20px; /* Ajusta el margen derecho de los iconos */
 }
 
 a, button {
   color: inherit;
-}
-
-.scrolled a, .scrolled button {
-  color: black;
 }
 
 /* Ajusta el tamaño de los iconos si es necesario */

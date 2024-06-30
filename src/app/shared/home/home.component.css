@@ -5,7 +5,9 @@
 
 ngb-carousel {
   height: 100%;
-  outline: none;
+  position: relative;
+  top: -100px; /* Ajustar esta cantidad según sea necesario para subir más */
+  z-index: 10; /* Asegurar que el z-index sea suficientemente alto */
 }
 
 .picsum-img-wrapper {
