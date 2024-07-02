@@ -5,7 +5,7 @@
         <h2 class="title-text">Gestión de Empresas</h2>
         <button mat-raised-button color="primary" (click)="openDialog()" class="add-button">Agregar</button>
       </div>
-      
+
       <div class="table-container">
         <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
           <!-- Nombre Column -->
@@ -20,18 +20,22 @@
             <td mat-cell *matCellDef="let element"> {{element.urlPWeb}} </td>
           </ng-container>
 
-          <!-- Acciones Column -->
-          <ng-container matColumnDef="acciones">
-            <th mat-header-cell *matHeaderCellDef> Acciones </th>
-            <td mat-cell *matCellDef="let element">
-              <button mat-icon-button color="primary" (click)="openDialog(element)">
-                <mat-icon>edit</mat-icon>
-              </button>
-              <button mat-icon-button color="warn" (click)="confirmDelete(element.id)">
-                <mat-icon>delete</mat-icon>
-              </button>
-            </td>
-          </ng-container>
+        <!-- Acciones Column -->
+        <ng-container matColumnDef="acciones">
+          <th mat-header-cell *matHeaderCellDef> Acciones </th>
+          <td mat-cell *matCellDef="let element">
+            <button mat-icon-button color="primary" (click)="openDialog(element)">
+              <mat-icon>edit</mat-icon>
+            </button>
+            <button mat-icon-button color="warn" (click)="confirmDelete(element.id)">
+              <mat-icon>delete</mat-icon>
+            </button>
+            <button mat-icon-button color="accent" (click)="goToCategories(element.id)">
+              <mat-icon>category</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+
 
           <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
           <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>

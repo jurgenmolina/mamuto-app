@@ -100,4 +100,8 @@ export class EmpresasComponent implements OnInit {
     );
   }
 
+  // Nuevo método para redirigir a la página de categorías
+  goToCategories(empresaId: number): void {
+    this.router.navigate(['/admin/category', empresaId]);
+  }
 }
