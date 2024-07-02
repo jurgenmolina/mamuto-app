@@ -1,28 +1,23 @@
 <div class="title-container">
-  <h1 mat-dialog-title class="title">{{ isEditMode ? 'Editar Categoría' : 'Agregar Categoría' }}</h1>
-</div>
-<div mat-dialog-content class="form-container">
-  <form [formGroup]="categoriaForm" (ngSubmit)="onSubmit()">
-    <div class="form-columns">
-      <div class="form-column">
-        <mat-form-field appearance="outline">
-          <mat-label>Nombre</mat-label>
-          <input matInput formControlName="nombre" required maxlength="30">
-          <mat-error *ngIf="categoriaForm.controls['nombre'].hasError('required')">Nombre es requerido</mat-error>
-          <mat-error *ngIf="categoriaForm.controls['nombre'].hasError('maxlength')">Máximo 30 caracteres</mat-error>
-        </mat-form-field>
-        <mat-form-field appearance="outline">
-          <mat-label>Descripción</mat-label>
-          <textarea matInput formControlName="descripcion" required maxlength="100"></textarea>
-          <mat-error *ngIf="categoriaForm.controls['descripcion'].hasError('required')">Descripción es requerida</mat-error>
-          <mat-error *ngIf="categoriaForm.controls['descripcion'].hasError('maxlength')">Máximo 100 caracteres</mat-error>
-        </mat-form-field>
-        <!-- Note: You might want to add a dropdown or autocomplete for selecting the empresa -->
+    <h1 mat-dialog-title class="title">{{ isEditMode ? 'Editar Categoría' : 'Agregar Categoría' }}</h1>
+  </div>
+  <div mat-dialog-content class="form-container">
+    <form [formGroup]="categoriaForm" (ngSubmit)="onSubmit()">
+      <mat-form-field appearance="outline">
+        <mat-label>Nombre</mat-label>
+        <input matInput formControlName="nombre" required maxlength="30">
+        <mat-error *ngIf="categoriaForm.controls['nombre'].hasError('required')">Nombre es requerido</mat-error>
+        <mat-error *ngIf="categoriaForm.controls['nombre'].hasError('maxlength')">Máximo 30 caracteres</mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Descripción</mat-label>
+        <textarea matInput formControlName="descripcion" required maxlength="100"></textarea>
+        <mat-error *ngIf="categoriaForm.controls['descripcion'].hasError('required')">Descripción es requerida</mat-error>
+        <mat-error *ngIf="categoriaForm.controls['descripcion'].hasError('maxlength')">Máximo 100 caracteres</mat-error>
+      </mat-form-field>
+      <div mat-dialog-actions class="form-actions">
+        <button mat-button (click)="onNoClick()" class="cancel-button">Cancelar</button>
+        <button mat-raised-button color="primary" type="submit">{{ isEditMode ? 'Actualizar' : 'Crear' }}</button>
       </div>
-    </div>
-    <div mat-dialog-actions class="form-actions">
-      <button mat-button (click)="onNoClick()" class="cancel-button">Cancelar</button>
-      <button mat-raised-button color="primary" type="submit">{{ isEditMode ? 'Actualizar' : 'Crear' }}</button>
-    </div>
-  </form>
-</div>
+    </form>
+  </div>

@@ -1,44 +1,41 @@
 <div class="categorias-container">
-  <mat-card class="categorias-card">
-    <mat-card-content class="categorias-content">
-      <div class="header-container">
-        <h2 class="title-text">Gestión de Categorías - {{empresaNombre}}</h2>
-        <button mat-raised-button color="primary" (click)="openDialog()" class="add-button">Agregar Categoría</button>
-      </div>
-
-      <div class="table-container">
-        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
-          <!-- Nombre Column -->
-          <ng-container matColumnDef="nombre">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </th>
-            <td mat-cell *matCellDef="let categoria"> {{categoria.nombre}} </td>
-          </ng-container>
-
-          <!-- Descripción Column -->
-          <ng-container matColumnDef="descripcion">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header> Descripción </th>
-            <td mat-cell *matCellDef="let categoria"> {{categoria.descripcion}} </td>
-          </ng-container>
-
-          <!-- Acciones Column -->
-          <ng-container matColumnDef="acciones">
-            <th mat-header-cell *matHeaderCellDef> Acciones </th>
-            <td mat-cell *matCellDef="let categoria">
-              <button mat-icon-button color="primary" (click)="openDialog(categoria)">
-                <mat-icon>edit</mat-icon>
-              </button>
-              <button mat-icon-button color="warn" (click)="confirmDelete(categoria.id)">
-                <mat-icon>delete</mat-icon>
-              </button>
-            </td>
-          </ng-container>
-
-          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-        </table>
-      </div>
-
-      <mat-paginator [length]="totalCategorias" [pageSize]="5" [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
-    </mat-card-content>
-  </mat-card>
-</div>
+    <mat-card class="categorias-card">
+      <mat-card-content class="categorias-content">
+        <div class="header-container">
+          <h2 class="title-text">Categorías de la Empresa</h2>
+          <button mat-raised-button color="primary" (click)="openDialog()" class="add-button">Agregar Categoría</button>
+        </div>
+  
+        <div class="table-container">
+          <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
+            <ng-container matColumnDef="nombre">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </th>
+              <td mat-cell *matCellDef="let element"> {{element.nombre}} </td>
+            </ng-container>
+  
+            <ng-container matColumnDef="descripcion">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> Descripción </th>
+              <td mat-cell *matCellDef="let element"> {{element.descripcion}} </td>
+            </ng-container>
+  
+            <ng-container matColumnDef="acciones">
+              <th mat-header-cell *matHeaderCellDef> Acciones </th>
+              <td mat-cell *matCellDef="let element">
+                <button mat-icon-button color="primary" (click)="openDialog(element)">
+                  <mat-icon>edit</mat-icon>
+                </button>
+                <button mat-icon-button color="warn" (click)="confirmDelete(element.id)">
+                  <mat-icon>delete</mat-icon>
+                </button>
+              </td>
+            </ng-container>
+  
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+        </div>
+  
+        <mat-paginator [length]="totalCategorias" [pageSize]="5" [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+      </mat-card-content>
+    </mat-card>
+  </div>

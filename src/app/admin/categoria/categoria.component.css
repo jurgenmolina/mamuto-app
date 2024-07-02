@@ -22,7 +22,7 @@
   background-color: rgba(255, 255, 255, 0.9);
 }
 
-.empresas-content {
+.categorias-content {
   padding: 20px;
 }
 
@@ -69,7 +69,7 @@ mat-paginator {
 
 /* Estilos responsivos */
 @media (max-width: 600px) {
-  .empresas-card {
+  .categorias-card {
     width: 95%;
   }
 

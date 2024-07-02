@@ -1,25 +1,25 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { CategoriaService } from '../../services/categoria/categoria.service';
 import { Categoria } from '../../model/categoria';
+import { MatTableDataSource } from '@angular/material/table';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
+import { DialogConfirmComponent } from '../../components/dialog-confirm/dialog-confirm.component';
+import { CategoriaFormComponent } from './categoria-form/categoria-form.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
-import { MatTableModule, MatTableDataSource } from '@angular/material/table';
-import { ReactiveFormsModule } from '@angular/forms';
-import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
-import { MatSort, MatSortModule } from '@angular/material/sort';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
 import { MatIconModule } from '@angular/material/icon';
 import { CommonModule } from '@angular/common';
-import { DialogConfirmComponent } from '../../components/dialog-confirm/dialog-confirm.component';
-import { MatNativeDateModule } from '@angular/material/core';
-import { ActivatedRoute } from '@angular/router';
-import { CategoriaFormComponent } from './categoria-form/categoria-form.component';
-import { EmpresaService } from '../../services/empresa/empresa.service';
 
 @Component({
-  selector: 'app-categorias',
+  selector: 'app-categoria',
   standalone: true,
   imports: [
     MatCardModule,
@@ -27,47 +27,33 @@ import { EmpresaService } from '../../services/empresa/empresa.service';
     MatInputModule,
     MatButtonModule,
     MatTableModule,
-    ReactiveFormsModule,
-    MatIconModule,
     MatPaginatorModule,
     MatSortModule,
-    MatNativeDateModule,
+    MatIconModule,
     CommonModule
   ],
   templateUrl: './categoria.component.html',
   styleUrls: ['./categoria.component.css']
 })
-export class CategoriasComponent implements OnInit {
+export class CategoriaComponent implements OnInit {
   displayedColumns: string[] = ['nombre', 'descripcion', 'acciones'];
   dataSource = new MatTableDataSource<Categoria>();
   totalCategorias: number = 0;
   empresaId: number;
-  empresaNombre: string = '';
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
   constructor(
     private categoriaService: CategoriaService,
-    private EmpresaService: EmpresaService,
-    public dialog: MatDialog,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    public dialog: MatDialog
   ) {
-    this.empresaId = +this.route.snapshot.params['empresaId'];
+    this.empresaId = Number(this.route.snapshot.paramMap.get('empresaId'));
   }
 
   ngOnInit(): void {
     this.loadCategorias();
-    this.loadEmpresaInfo();
-  }
-
-  loadEmpresaInfo(): void {
-    this.EmpresaService.getEmpresa(this.empresaId).subscribe(
-      empresa => {
-        this.empresaNombre = empresa.nombre;
-      },
-      error => console.error('Error fetching empresa info:', error)
-    );
   }
 
   loadCategorias(): void {
@@ -85,7 +71,7 @@ export class CategoriasComponent implements OnInit {
   openDialog(categoria?: Categoria): void {
     const dialogRef = this.dialog.open(CategoriaFormComponent, {
       width: '600px',
-      data: { ...categoria, empresa: { id: this.empresaId } }
+      data: { categoria: categoria || {}, empresaId: this.empresaId }
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -112,14 +98,5 @@ export class CategoriasComponent implements OnInit {
       () => this.loadCategorias(),
       error => console.error(error)
     );
-  }
-
-  applyFilter(event: Event) {
-    const filterValue = (event.target as HTMLInputElement).value;
-    this.dataSource.filter = filterValue.trim().toLowerCase();
-
-    if (this.dataSource.paginator) {
-      this.dataSource.paginator.firstPage();
-    }
   }
 }

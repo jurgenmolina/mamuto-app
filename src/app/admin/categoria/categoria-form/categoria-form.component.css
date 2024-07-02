@@ -1,0 +1,47 @@
+.title-container {
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .title {
+    color: #051f68;
+  }
+  
+  .form-container {
+    margin: 20px;
+  }
+  
+  .form-container mat-form-field {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+  
+  .form-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+  }
+  
+  .cancel-button {
+    border: 1px solid #ccc;
+    margin-right: 10px;
+  }
+  
+  @media (max-width: 600px) {
+    .form-container {
+      margin: 10px;
+      max-height: calc(100vh - 120px);
+      overflow-y: auto;
+    }
+  
+    .form-actions {
+      flex-direction: column;
+    }
+  
+    button {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+  }
